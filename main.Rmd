@@ -1,0 +1,44 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+library(tidyverse)
+```
+
+# COVID-19 World Statistics
+WHO data
+Source: https://covid19.who.int/WHO-COVID-19-global-data.csv
+Last visit: 05.02.2024
+
+
+```{r}
+# WHO data
+# Source: https://covid19.who.int/WHO-COVID-19-global-data.csv
+# Local version:
+global_cases <- read_csv("raw_data/WHO-COVID-19-global-data_02_2024.csv")
+
+# Summary statistics. Cases and deaths to certain date
+date_final <-  "2024-01-07"
+ua_cases <- global_cases %>%
+  filter(Country %in% c("Ukraine")) %>%
+  filter(Date_reported <= as.Date(date_final))
+
+```
+
+
+
+# Population Statistics
+World Bank Data
+Source: https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL,SP.POP.0014.TO.ZS,SP.POP.1564.TO.ZS,SP.POP.65UP.TO.ZS,SP.POP.DPND.YG,SP.POP.DPND.OL,SP.DYN.CDRT.IN,SP.DYN.CBRT.IN#
+Last visit:
+
+```{r}
+# World Bank Data
+# Source: https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL,SP.POP.0014.TO.ZS,SP.POP.1564.TO.ZS,SP.POP.65UP.TO.ZS,SP.POP.DPND.YG,SP.POP.DPND.OL,SP.DYN.CDRT.IN,SP.DYN.CBRT.IN#
+# Local version:
+global_cases <- read_csv("raw_data/WHO-COVID-19-global-data_01_2024.csv")
+
+
+```
+
